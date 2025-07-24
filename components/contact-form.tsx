@@ -32,7 +32,7 @@ const ContactForm = ({ onSave }: ContactFormProps) => {
       setTanggal('');
       if (onSave) onSave(); // Panggil callback setelah berhasil menyimpan
     } catch (err) {
-      //setError(err.message);
+      
       console.error('Error:', err);
     } finally {
       setLoading(false);
