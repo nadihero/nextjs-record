@@ -3,17 +3,22 @@
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
-const ContactForm = ({ onSave }) => {
+interface ContactFormProps {
+  onSave: () => void;
+}
+
+const ContactForm = ({ onSave }: ContactFormProps) => {
   const [total, setTotal] = useState('');
   const [tanggal, setTanggal] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+
 
     try {
       const { data, error } = await supabase
